@@ -56,6 +56,7 @@ export class AppComponent {
     this.palabraClave = new PalabrasClaves();
     this.texto.texto = this.inputPalabra;
     this.textService.detectarPalabrasClaves(this.texto).subscribe(data => {
+      this.palabraClave.texto = data.Texto;
       this.palabraClave.palabras = data.Palabras;
     });
     this.inputPalabra = '';
@@ -65,6 +66,7 @@ export class AppComponent {
     this.entidad = new EntidadResponse();
     this.texto.texto = this.inputEntidad;
     this.textService.reconocerEntidades(this.texto).subscribe(data => {
+      this.entidad.text = data.Texto;
       this.entidad.entidades = data.Entidades;
     });
     this.inputEntidad = '';

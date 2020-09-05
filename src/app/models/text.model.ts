@@ -13,10 +13,12 @@ export class Lenguaje {
 }
 
 export class PalabrasClaves {
+    texto: string;
     palabras: string[];
 }
 
 export class EntidadResponse {
+    text: string;
     entidades: Entidad[];
 }
 

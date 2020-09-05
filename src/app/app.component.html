@@ -5,9 +5,6 @@
     <mat-tab-group style="text-align: center;">
         <mat-tab label="Análisis de los sentimientos">
             <div class="contenedor">
-                <!-- <mat-form-field>
-                    <input matInput [(ngModel)]="valor2" type="number" placeholder="Ingrese segundo valor">
-                </mat-form-field> -->
                 <mat-form-field class="example-full-width">
                     <mat-label>Ingrese un Comentario</mat-label>
                     <textarea matInput [(ngModel)]="input"></textarea>
@@ -31,7 +28,7 @@
             <div class="contenedor" *ngFor="let datos of listaLenguajes">
                 <mat-card>
                     <p>{{ datos.texto }}</p>
-                    Lenguaje : {{ datos.lenguaje }}
+                    <p style="font-weight: bold;">Lenguaje : {{ datos.lenguaje }}</p>
                 </mat-card>
             </div>
         </mat-tab>
@@ -45,8 +42,11 @@
                 <button mat-raised-button color="primary" [disabled]="!inputPalabra" (click)="reconocerPalabras()">Enviar</button>
             </div>
             <div class="contenedor">
-                <mat-card *ngFor="let datos of palabraClave?.palabras">
-                    <li>{{ datos }}</li>
+                <mat-card>
+                    {{ palabraClave?.texto }}
+                    <div *ngFor="let datos of palabraClave?.palabras">
+                        <li style="font-weight: bold;">{{ datos }}</li>
+                    </div>
                 </mat-card>
             </div>
         </mat-tab>
@@ -60,8 +60,11 @@
                 <button mat-raised-button color="primary" [disabled]="!inputEntidad" (click)="reconocerEntidades()">Enviar</button>
             </div>
             <div class="contenedor">
-                <mat-card *ngFor="let datos of entidad?.entidades">
-                    <li>{{ datos.entidad }} - {{ datos.categoria }}</li>
+                <mat-card>
+                    {{ entidad?.text }}
+                    <div *ngFor="let datos of entidad?.entidades">
+                        <li style="font-weight: bold;">{{ datos.entidad }} - {{ datos.categoria }}</li>
+                    </div>
                 </mat-card>
             </div>
         </mat-tab>
