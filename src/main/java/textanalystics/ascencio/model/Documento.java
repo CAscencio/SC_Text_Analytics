@@ -1,7 +1,6 @@
 package textanalystics.ascencio.model;
 
-public class Sentimiento {
-
+public class Documento {
     private String texto;
 
     public String getTexto() {
