@@ -1,0 +1,69 @@
+<div class="principal">
+    <h1 style="text-align: center; font-size: 40px; padding-top: 40px;">Text Analytics - MS Azure 🚀</h1>
+    <p class="parrafo">Text Analytics API es un servicio basado en la nube que proporciona procesamiento avanzado de lenguaje natural sobre texto sin formato e incluye cuatro funciones principales: análisis de sentimientos, extracción de frases clave, detección de idioma
+        y reconocimiento de entidades nombradas.</p>
+    <mat-tab-group style="text-align: center;">
+        <mat-tab label="Análisis de los sentimientos">
+            <div class="contenedor">
+                <!-- <mat-form-field>
+                    <input matInput [(ngModel)]="valor2" type="number" placeholder="Ingrese segundo valor">
+                </mat-form-field> -->
+                <mat-form-field class="example-full-width">
+                    <mat-label>Ingrese un Comentario</mat-label>
+                    <textarea matInput [(ngModel)]="input"></textarea>
+                </mat-form-field>
+
+                <button mat-raised-button color="primary" [disabled]="!input" (click)="analizarSentimiento()">Enviar</button>
+            </div>
+            <div class="contenedor" *ngFor="let datos of listaResponse">
+                <mat-card>{{ datos.texto }} - {{ datos.emoji }}</mat-card>
+            </div>
+        </mat-tab>
+        <mat-tab label="Detección de idioma">
+            <div class="contenedor">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Ingrese un Comentario</mat-label>
+                    <textarea matInput [(ngModel)]="inputLenguaje"></textarea>
+                </mat-form-field>
+
+                <button mat-raised-button color="primary" [disabled]="!inputLenguaje" (click)="detectarLeguaje()">Enviar</button>
+            </div>
+            <div class="contenedor" *ngFor="let datos of listaLenguajes">
+                <mat-card>
+                    <p>{{ datos.texto }}</p>
+                    Lenguaje : {{ datos.lenguaje }}
+                </mat-card>
+            </div>
+        </mat-tab>
+        <mat-tab label="Reconocer palabras Clave">
+            <div class="contenedor">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Ingrese un Comentario</mat-label>
+                    <textarea matInput [(ngModel)]="inputPalabra"></textarea>
+                </mat-form-field>
+
+                <button mat-raised-button color="primary" [disabled]="!inputPalabra" (click)="reconocerPalabras()">Enviar</button>
+            </div>
+            <div class="contenedor">
+                <mat-card *ngFor="let datos of palabraClave?.palabras">
+                    <li>{{ datos }}</li>
+                </mat-card>
+            </div>
+        </mat-tab>
+        <mat-tab label="Reconocer las Entidades">
+            <div class="contenedor">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Ingrese un Comentario</mat-label>
+                    <textarea matInput [(ngModel)]="inputEntidad"></textarea>
+                </mat-form-field>
+
+                <button mat-raised-button color="primary" [disabled]="!inputEntidad" (click)="reconocerEntidades()">Enviar</button>
+            </div>
+            <div class="contenedor">
+                <mat-card *ngFor="let datos of entidad?.entidades">
+                    <li>{{ datos.entidad }} - {{ datos.categoria }}</li>
+                </mat-card>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</div>

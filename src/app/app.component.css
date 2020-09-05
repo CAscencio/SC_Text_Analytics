@@ -1,0 +1,15 @@
+.principal {
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+.parrafo {
+    text-align: center;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem auto;
+    max-width: 600px;
+}
